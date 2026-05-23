@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無料・英語コーチング体験 | Kenの英語コーチング</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #0052D4;
+    --blue-dark: #003A9B;
+    --blue-light: #E8F0FF;
+    --orange: #FF8C00;
+    --orange-light: #FFF3E0;
+    --white: #FFFFFF;
+    --off-white: #F7F9FC;
+    --gray: #6B7280;
+    --gray-light: #E5E7EB;
+    --text: #111827;
+    --text-sub: #4B5563;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-light);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--blue);
+    letter-spacing: 0.05em;
+  }
+  .header-logo span { color: var(--orange); }
+  .header-cta {
+    background: var(--orange);
+    color: var(--white);
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+    white-space: nowrap;
+  }
+  .header-cta:hover { background: #e07b00; transform: scale(1.03); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--blue);
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(255,140,0,0.12);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 {
+    font-size: clamp(1.7rem, 5vw, 2.8rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--orange);
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.85);
+    font-size: 1rem;
+    max-width: 540px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 1rem 2.4rem;
+    border-radius: 999px;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(255,140,0,0.35);
+    position: relative;
+    z-index: 1;
+  }
+  .hero-cta:hover {
+    background: #e07b00;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(255,140,0,0.45);
+  }
+  .hero-trust {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.4rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-trust span {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .hero-trust span::before {
+    content: '✓';
+    color: var(--orange);
+    font-weight: 700;
+  }
+
+  /* ── SECTION COMMON ── */
+  .section {
+    padding: 4rem 2rem;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .section h2 {
+    font-size: clamp(1.3rem, 3.5vw, 1.9rem);
+    font-weight: 900;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+  .section h2 em {
+    font-style: normal;
+    color: var(--blue);
+    border-bottom: 3px solid var(--orange);
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid var(--gray-light);
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* ── PAIN SECTION ── */
+  .pain-bg { background: var(--off-white); }
+  .pain-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+  }
+  .pain-list li {
+    background: var(--white);
+    border-left: 4px solid var(--blue-light);
+    padding: 0.9rem 1.2rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95rem;
+    color: var(--text-sub);
+    transition: border-color 0.2s;
+  }
+  .pain-list li:hover { border-color: var(--blue); }
+  .pain-list li::before {
+    content: '…';
+    color: var(--gray);
+    margin-right: 0.4rem;
+  }
+  .pain-bottom {
+    background: var(--blue);
+    color: var(--white);
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .pain-bottom strong { color: var(--orange); }
+
+  /* ── WHAT YOU GET ── */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .step {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+  }
+  .step-body h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .step-body p {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+  }
+  .no-push {
+    background: var(--orange-light);
+    border: 1.5px solid var(--orange);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .no-push strong { color: var(--orange); }
+
+  /* ── PROFILE ── */
+  .profile-bg { background: var(--off-white); }
+  .profile-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--gray-light);
+  }
+  .profile-top {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .profile-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+  .profile-name h3 {
+    font-size: 1.2rem;
+    font-weight: 900;
+    margin-bottom: 0.2rem;
+  }
+  .profile-name p {
+    font-size: 0.85rem;
+    color: var(--gray);
+  }
+  .profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .tag {
+    background: var(--blue-light);
+    color: var(--blue-dark);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+  }
+  .profile-text {
+    font-size: 0.92rem;
+    color: var(--text-sub);
+    line-height: 1.85;
+  }
+
+  /* ── WHY FREE ── */
+  .why-free-box {
+    background: var(--blue);
+    border-radius: 16px;
+    padding: 2rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  .why-free-box h3 {
+    font-size: 1.15rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--orange);
+  }
+  .why-free-box p {
+    font-size: 0.92rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.9);
+  }
+  .why-free-box strong { color: var(--orange); }
+  .seats {
+    background: var(--orange-light);
+    border: 2px solid var(--orange);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+  }
+  .seats span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--orange);
+    margin-top: 0.2rem;
+  }
+
+  /* ── FAQ ── */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .faq-item {
+    border: 1px solid var(--gray-light);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 1rem 1.25rem;
+    background: var(--white);
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--blue-dark);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .faq-q::before {
+    content: 'Q';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    color: var(--orange);
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+  .faq-a {
+    padding: 0.9rem 1.25rem 1rem 3rem;
+    background: var(--off-white);
+    font-size: 0.9rem;
+    color: var(--text-sub);
+    line-height: 1.75;
+    border-top: 1px solid var(--gray-light);
+  }
+
+  /* ── FINAL CTA ── */
+  .final-cta-bg {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+  .final-cta-bg h2 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+  .final-cta-bg h2 em {
+    font-style: normal;
+    color: var(--orange);
+  }
+  .final-cta-bg p {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    line-height: 1.85;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .final-btn {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 1.1rem 2.6rem;
+    border-radius: 999px;
+    box-shadow: 0 4px 24px rgba(255,140,0,0.4);
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    margin-bottom: 1.25rem;
+    display: block;
+    max-width: 400px;
+    margin: 0 auto 1.25rem;
+  }
+  .final-btn:hover {
+    background: #e07b00;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(255,140,0,0.5);
+  }
+  .final-trust {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .final-trust span {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .final-trust span::before {
+    content: '✓';
+    color: var(--orange);
+    font-weight: 700;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.78rem;
+  }
+  .footer a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero > * { animation: fadeUp 0.6s ease both; }
+  .hero-badge { animation-delay: 0.05s; }
+  .hero h1 { animation-delay: 0.15s; }
+  .hero-sub { animation-delay: 0.25s; }
+  .hero-cta { animation-delay: 0.35s; }
+  .hero-trust { animation-delay: 0.45s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .header { padding: 0.9rem 1.2rem; }
+    .hero { padding: 3.5rem 1.2rem 3rem; }
+    .section { padding: 3rem 1.2rem; }
+    .profile-top { flex-direction: column; }
+    .step { gap: 1rem; }
+    .final-cta-bg { padding: 3.5rem 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-logo">KEN<span>'S</span> ENGLISH</div>
+  <a href="https://lin.ee/vS3VkmB" class="header-cta" target="_blank">無料で申し込む</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🎁 先着5名限定・完全無料</div>
+  <h1>「英語、またやめてしまった」<br><em>その理由、意志の弱さじゃない。</em></h1>
+  <p class="hero-sub">
+    英語学習が続かないのは、あなたのせいじゃない。<br>
+    「仕組み」がなかっただけ。<br><br>
+    TESOL修士×現役教員のKenが、<br>
+    今だけ無料で英語学習の「突破口」を一緒に探します。
+  </p>
+  <a href="https://lin.ee/vS3VkmB" class="hero-cta" target="_blank">
+    【無料】25分・英語コーチング体験に申し込む
+  </a>
+  <div class="hero-trust">
+    <span>完全無料</span>
+    <span>勧誘・営業なし</span>
+    <span>オンライン25分</span>
+    <span>先着5名</span>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PAIN -->
+<div class="pain-bg">
+  <section class="section">
+    <div class="section-label">こんな経験ありませんか？</div>
+    <h2>「また三日坊主に<em>なってしまった</em>」</h2>
+    <ul class="pain-list">
+      <li>参考書を買っても、気づいたら積ん読になっている</li>
+      <li>「まず単語から」と始めたのに、いつの間にかやめている</li>
+      <li>何を勉強すればいいか分からず、迷ったまま時間が過ぎる</li>
+      <li>TOEICの点数が上がらず、手応えがまったくない</li>
+      <li>忙しいを言い訳にして、また今月も何もできなかった</li>
+    </ul>
+    <div class="pain-bottom">
+      これ、全部<strong>「仕組みがない」</strong>から起きています。<br>
+      あなたの頭が悪いわけでも、やる気がないわけでもない。<br>
+      正しい仕組みさえあれば、誰でも続けられます。
+    </div>
+  </section>
+</div>
+
+<hr class="divider">
+
+<!-- WHAT YOU GET -->
+<section class="section">
+  <div class="section-label">無料セッションでできること</div>
+  <h2>たった25分で、「明日から<em>何をすべきか</em>」が明確になる</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>今の英語力とゴールのギャップを整理する</h3>
+        <p>「なんとなく英語ができていない」を言語化し、本当の課題を一緒に見つけます。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>あなたに合った学習スタイルを診断する</h3>
+        <p>忙しさ・生活リズム・得意不得意を踏まえて、続けられる方法を探します。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>明日からすぐ使える「最初の一手」をお伝えする</h3>
+        <p>セッション後に「今日から何をすればいいか」が手元に残ります。</p>
+      </div>
+    </div>
+  </div>
+  <div class="no-push">
+    セッション後に、無理な勧誘は一切しません。<br>
+    ただ、「もっと一緒にやりたい」と感じてくれたら、その時に話しましょう。<br>
+    <strong>まずは話すだけで大丈夫です。</strong>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROFILE -->
+<div class="profile-bg">
+  <section class="section">
+    <div class="section-label">コーチ紹介</div>
+    <h2>「教える」より<em>「一緒に考える」</em>が得意なコーチです</h2>
+    <div class="profile-card">
+      <div class="profile-top">
+        <div class="profile-icon">K</div>
+        <div class="profile-name">
+          <h3>Ken（ケン）</h3>
+          <p>英語コーチ・現役英語教員</p>
+        </div>
+      </div>
+      <div class="profile-tags">
+        <span class="tag">TESOL修士号（Oxford Brookes大）</span>
+        <span class="tag">タイ駐在経験</span>
+        <span class="tag">デンマーク留学</span>
+        <span class="tag">現役英語教員</span>
+        <span class="tag">立教大学卒</span>
+      </div>
+      <p class="profile-text">
+        立教大学卒業後、国内商社でタイ駐在を経験。ビジネスの現場で「本当に使える英語」の難しさを体感しました。<br><br>
+        その後デンマーク・フォルケホイスコーレに留学し、「対話で人が変わる」教育に出会う。英国・Oxford Brookes大学でTESOL（英語教授法）修士号（MA）を取得後、現在は現役英語教員として毎日実践中。<br><br>
+        「丸暗記をやめて、言葉の本質をつかむ」——その学び方を、一人ひとりに合わせてお伝えしています。
+      </p>
+    </div>
+  </section>
+</div>
+
+<hr class="divider">
+
+<!-- WHY FREE -->
+<section class="section">
+  <div class="section-label">なぜ無料なのか</div>
+  <h2>正直に<em>話します。</em></h2>
+  <div class="why-free-box">
+    <h3>無料にしている理由</h3>
+    <p>
+      今、私はコーチングプログラムを本格始動する前に、<strong>「実際に悩んでいる方の話を直接聞きたい」</strong>と思っています。<br><br>
+      あなたにとっては無料で相談できる機会。<br>
+      私にとっては、本当に必要なサポートを知る機会。<br><br>
+      お互いにとって意味のある25分にしたい——その思いで、無料にしています。
+    </p>
+  </div>
+  <div class="seats">
+    丁寧にお話しするため、受付は
+    <span>先着5名様限定</span>
+    です
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- FAQ -->
+<div class="pain-bg">
+  <section class="section">
+    <div class="section-label">よくある質問</div>
+    <h2>申し込む前に<em>確認したいこと</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">英語力がかなり落ちていても大丈夫ですか？</div>
+        <div class="faq-a">はい、むしろそういう方のためのセッションです。現状の英語力は一切問いません。ゼロからの学び直しも大歓迎です。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">セッション後に何か売り込まれますか？</div>
+        <div class="faq-a">一切ありません。もし「続けたい」と感じてくれた方にだけ、改めてご案内します。その場で断っていただいても全く問題ありません。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">忙しくて25分も取れるか不安です。</div>
+        <div class="faq-a">オンライン（Google Meet等）で実施します。移動時間ゼロで、ランチ休憩・早朝・夜間でもOKです。日程は柔軟に調整します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">申込み後の流れを教えてください。</div>
+        <div class="faq-a">LINEに「体験セッション希望」と送るだけ。24時間以内にKenから返信し、日程を調整します。その後オンラインで25分のセッションを行います。</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FINAL CTA -->
+<section class="final-cta-bg">
+  <h2>「また今度やろう」が、<br><em>一番もったいない。</em></h2>
+  <p>
+    英語学習に何度も挫折してきたなら、<br>
+    一人でやり続けるのはもう終わりにしましょう。<br>
+    25分、話してみてください。<br>
+    それだけで、明日からの景色が変わります。
+  </p>
+  <a href="https://lin.ee/vS3VkmB" class="final-btn" target="_blank">
+    【無料・先着5名】25分の英語コーチング体験に申し込む
+  </a>
+  <div class="final-trust">
+    <span>オンライン実施</span>
+    <span>完全無料</span>
+    <span>勧誘なし</span>
+    <span>所要25分</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 Kenの英語コーチング　|　<a href="https://www.youtube.com/@KensNewsEnglish" target="_blank">YouTube</a>　|　<a href="https://www.instagram.com/kensnewsenglish/" target="_blank">Instagram</a>　|　<a href="https://lin.ee/vS3VkmB" target="_blank">LINE公式</a></p>
+</footer>
+
+</body>
+</html>
